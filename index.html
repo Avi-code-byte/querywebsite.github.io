@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>site</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo2.png" type="image/x-icon">
+    
+    <script src="https://kit.fontawesome.com/221d03fb2c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+   
+
+
+
+
+
+    <section class =  "banner"  id="home">
+            <div class="textBx">
+                <h2>Here!!<br> <span>its the website you have asked for</span></h2>
+                <h3>Click on the buttom <br> in order to go to the ask your query </h3>
+                <a href="#contact" class="btn" id="btn-border-pop">Ask Query</a>
+            </div>
+    </section>
+
+
+
+
+
+
+   
+
+
+
+
+
+    <section class="contact" id="contact">
+        <div class="heading white">
+            <p id="super">Enter the details and press Send Message</p>
+            <h2>Ask Query</h2>
+        </div>
+        
+               
+           
+            <div class="formBx">
+                <form action="javascript:sendmail()" method="post">
+                    <h3>Message Me</h3>
+                    <input type="text" placeholder="Full Name" name="" id="Name">
+                    <input type="email" placeholder="Email" name="" id="Sender">
+                    <input type="number" placeholder="Phone Number" name="" id="phn">
+                    <textarea name="" rows="6" id="Message" placeholder="Your Message" ></textarea>
+                    <input type="submit" value="Send Message" name="" id="sub">
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+  
+
+    <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+   
+  <script>  
+  
+       function sendmail(){
+      
+              var name = $('#Name').val();
+              var email = $('#Sender').val();
+              var pno = $('#phn').val();
+              var message = $('#Message').val();
+  
+              // var body = $('#body').val();
+  
+              var Body='Name: '+name+'<br>Email: '+email+'<br>Phone Number: '+pno+'<br>Message: '+message;
+              //console.log(name, phone, email, message);
+  
+              Email.send({
+                  SecureToken : "5a89e087-29cf-4c20-a662-8fba6490a6eb",
+                  To: 'mishra00abhi@gmail.com',
+                  From: "codemadeeasy69@gmail.com",
+                  Subject: "New message on contact from "+name,
+                  Body: Body
+              }).then(
+                  message =>{
+                      //console.log (message);
+                      if(message=='OK'){
+                      alert('Your mail has been send. Thank you for connecting.');
+                      }
+                      else{
+                          console.error (message);
+                          alert('There is error at sending message. ')
+                          
+                      }
+  
+                  }
+              );
+  
+  
+  
+          }
+  
+  
+      </script>
+   </script>
+  
+
+
+
+</body>
+</html>
